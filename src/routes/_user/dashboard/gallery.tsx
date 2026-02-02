@@ -241,72 +241,77 @@ function GalleryComponent() {
       </motion.div>
 
       <motion.div variants={item}>
-      {loading ? (
-        <div className="text-center py-20 text-muted-foreground">加载中...</div>
-      ) : images.length === 0 ? (
-        <div className="text-center py-20 border-2 border-dashed rounded-lg">
-          <p className="text-muted-foreground">未找到图片</p>
-        </div>
-      ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {/* Image Grid Items */}
-          {images.map((img) => (
-            <motion.div
-              layoutId={`img-${img.id}`}
-              whileHover={{ scale: 1.02 }}
-              key={img.id}
-              className={`group relative aspect-square bg-muted/30 rounded-lg overflow-hidden border transition-all cursor-pointer ${
-                selectedIds.includes(img.id)
-                  ? 'border-primary ring-2 ring-primary ring-offset-2'
-                  : 'hover:border-primary/50'
-              }`}
-              onClick={() => setSelectedImage(img)}
-            >
-              <div
-                className="absolute top-2 left-2 z-20"
-                onClick={(e) => e.stopPropagation()}
+        {loading ? (
+          <div className="text-center py-20 text-muted-foreground">
+            加载中...
+          </div>
+        ) : images.length === 0 ? (
+          <div className="text-center py-20 border-2 border-dashed rounded-lg">
+            <p className="text-muted-foreground">未找到图片</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {/* Image Grid Items */}
+            {images.map((img) => (
+              <motion.div
+                layoutId={`img-${img.id}`}
+                whileHover={{ scale: 1.02 }}
+                key={img.id}
+                className={`group relative aspect-square bg-muted/30 rounded-lg overflow-hidden border transition-all cursor-pointer ${
+                  selectedIds.includes(img.id)
+                    ? 'border-primary ring-2 ring-primary ring-offset-2'
+                    : 'hover:border-primary/50'
+                }`}
+                onClick={() => setSelectedImage(img)}
               >
-                <Checkbox
-                  checked={selectedIds.includes(img.id)}
-                  onCheckedChange={() => toggleSelect(img.id)}
-                  className="bg-white/80 backdrop-blur-sm data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                <div
+                  className="absolute top-2 left-2 z-20"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Checkbox
+                    checked={selectedIds.includes(img.id)}
+                    onCheckedChange={() => toggleSelect(img.id)}
+                    className="bg-white/80 backdrop-blur-sm data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+                  />
+                </div>
+
+                <img
+                  src={`${imgPrefix}${img.path}`}
+                  alt={img.filename}
+                  className="w-full h-full object-contain p-2 transition-transform group-hover:scale-105"
+                  loading="lazy"
                 />
-              </div>
 
-              <img
-                src={`${imgPrefix}${img.path}`}
-                alt={img.filename}
-                className="w-full h-full object-contain p-2 transition-transform group-hover:scale-105"
-                loading="lazy"
-              />
-
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-                <div className="text-white text-xs font-medium truncate mb-1">
-                  {img.filename}
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+                  <div className="text-white text-xs font-medium truncate mb-1">
+                    {img.filename}
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-white/80 text-[10px]">
+                      ID: {img.id}
+                    </span>
+                    <Button
+                      size="icon"
+                      variant="destructive"
+                      className="h-6 w-6"
+                      onClick={(e) => handleDelete(e, img.id)}
+                    >
+                      <Trash2 className="h-3 w-3" />
+                    </Button>
+                  </div>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-white/80 text-[10px]">
-                    ID: {img.id}
-                  </span>
-                  <Button
-                    size="icon"
-                    variant="destructive"
-                    className="h-6 w-6"
-                    onClick={(e) => handleDelete(e, img.id)}
-                  >
-                    <Trash2 className="h-3 w-3" />
-                  </Button>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      )}
+              </motion.div>
+            ))}
+          </div>
+        )}
       </motion.div>
 
       {/* Pagination */}
-      <motion.div variants={item} className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-4 border-t">
+      <motion.div
+        variants={item}
+        className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-4 border-t"
+      >
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <span>每页显示</span>
           <Select

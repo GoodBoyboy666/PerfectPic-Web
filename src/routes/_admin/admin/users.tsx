@@ -551,7 +551,10 @@ function AdminUsersComponent() {
                 <div className="flex items-center gap-4">
                   <Avatar className="h-16 w-16 border">
                     {previewUrl ? (
-                      <AvatarImage src={previewUrl || undefined} className="object-cover" />
+                      <AvatarImage
+                        src={previewUrl || undefined}
+                        className="object-cover"
+                      />
                     ) : !removeAvatar && formData.avatar ? (
                       <AvatarImage
                         src={`${avatarPrefix}${currentId}/${formData.avatar}`}

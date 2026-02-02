@@ -96,49 +96,52 @@ function AdminOverview() {
       <Separator />
 
       <div className="grid gap-4 md:grid-cols-3">
-        <motion.div variants={item} className='contents'>
-            <Card>
+        <motion.div variants={item} className="contents">
+          <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">总用户数</CardTitle>
-                <Users className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium">总用户数</CardTitle>
+              <Users className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-                <div className="text-2xl font-bold">{stats.user_count}</div>
-                <p className="text-xs text-muted-foreground">注册用户总数</p>
+              <div className="text-2xl font-bold">{stats.user_count}</div>
+              <p className="text-xs text-muted-foreground">注册用户总数</p>
             </CardContent>
-            </Card>
+          </Card>
         </motion.div>
-        <motion.div variants={item} className='contents'>
-            <Card>
+        <motion.div variants={item} className="contents">
+          <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">图片总数</CardTitle>
-                <ImageIcon className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium">图片总数</CardTitle>
+              <ImageIcon className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-                <div className="text-2xl font-bold">{stats.image_count}</div>
-                <p className="text-xs text-muted-foreground">全站上传图片数量</p>
+              <div className="text-2xl font-bold">{stats.image_count}</div>
+              <p className="text-xs text-muted-foreground">全站上传图片数量</p>
             </CardContent>
-            </Card>
+          </Card>
         </motion.div>
-        <motion.div variants={item} className='contents'>
-            <Card>
+        <motion.div variants={item} className="contents">
+          <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">存储占用</CardTitle>
-                <HardDrive className="h-4 w-4 text-muted-foreground" />
+              <CardTitle className="text-sm font-medium">存储占用</CardTitle>
+              <HardDrive className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
-                <div className="text-2xl font-bold">
+              <div className="text-2xl font-bold">
                 {formatBytes(stats.storage_usage)}
-                </div>
-                <p className="text-xs text-muted-foreground">
+              </div>
+              <p className="text-xs text-muted-foreground">
                 图片文件占用的总空间
-                </p>
+              </p>
             </CardContent>
-            </Card>
+          </Card>
         </motion.div>
       </div>
 
-      <motion.div variants={item} className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+      <motion.div
+        variants={item}
+        className="grid gap-4 md:grid-cols-2 lg:grid-cols-7"
+      >
         <Card className="col-span-4">
           <CardHeader>
             <CardTitle>服务器信息</CardTitle>

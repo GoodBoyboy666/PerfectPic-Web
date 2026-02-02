@@ -122,7 +122,9 @@ function ProfileComponent() {
         <Card>
           <CardHeader>
             <CardTitle>修改头像</CardTitle>
-            <CardDescription>点击上传新头像，支持 JPG, PNG, GIF</CardDescription>
+            <CardDescription>
+              点击上传新头像，支持 JPG, PNG, GIF
+            </CardDescription>
           </CardHeader>
           <CardContent className="flex items-center gap-6">
             <Avatar

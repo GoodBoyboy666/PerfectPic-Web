@@ -12,11 +12,11 @@ function App() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 text-white">
-      <motion.header 
+      <motion.header
         className="p-6 flex justify-between items-center"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
       >
         <h1 className="text-3xl font-bold">{siteInfo.site_name}</h1>
         <nav className="flex gap-4">
@@ -38,29 +38,29 @@ function App() {
 
       <main className="flex-1 flex flex-col items-center justify-center text-center p-8">
         <motion.div
-           initial={{ opacity: 0, scale: 0.5 }}
-           animate={{ opacity: 1, scale: 1 }}
-           transition={{ duration: 0.8, ease: "easeOut" }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-            <h2 className="text-5xl font-extrabold mb-6">
+          <h2 className="text-5xl font-extrabold mb-6">
             {siteInfo.site_description}
-            </h2>
+          </h2>
         </motion.div>
-        
-        <motion.p 
-            className="text-xl max-w-2xl mb-10 opacity-90"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 0.9, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+
+        <motion.p
+          className="text-xl max-w-2xl mb-10 opacity-90"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 0.9, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
         >
           存储、整理和分享高质量照片的最佳平台。 安全、快速、随处可用。
         </motion.p>
 
-        <motion.div 
-            className="space-x-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
+        <motion.div
+          className="space-x-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
         >
           <Link
             to="/register"
@@ -77,7 +77,7 @@ function App() {
         </motion.div>
       </main>
 
-      <motion.footer 
+      <motion.footer
         className="p-6 text-center opacity-60"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.6 }}

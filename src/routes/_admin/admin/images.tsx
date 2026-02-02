@@ -257,11 +257,17 @@ function AdminImagesComponent() {
       </motion.div>
       <Separator className="my-6" />
       {images.length === 0 ? (
-        <motion.div variants={item} className="flex flex-col items-center justify-center py-20 border-2 border-dashed rounded-lg">
+        <motion.div
+          variants={item}
+          className="flex flex-col items-center justify-center py-20 border-2 border-dashed rounded-lg"
+        >
           <p className="text-muted-foreground text-lg">暂无图片数据</p>
         </motion.div>
       ) : (
-        <motion.div variants={item} className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+        <motion.div
+          variants={item}
+          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"
+        >
           {images.map((img) => (
             <motion.div
               layoutId={`admin-img-${img.id}`}
@@ -328,7 +334,10 @@ function AdminImagesComponent() {
       )}
 
       {/* Pagination */}
-      <motion.div variants={item} className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-4 border-t">
+      <motion.div
+        variants={item}
+        className="flex flex-col sm:flex-row justify-between items-center gap-4 pt-4 border-t"
+      >
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <span>每页显示</span>
           <Select
