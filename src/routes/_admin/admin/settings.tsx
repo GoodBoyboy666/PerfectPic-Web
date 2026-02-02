@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import { Save } from 'lucide-react'
 import { toast } from 'sonner'
+import { motion } from 'motion/react'
 import { fetchClient } from '../../../lib/api'
 import { Button } from '../../../components/ui/button'
 import { Input } from '../../../components/ui/input'
@@ -21,7 +22,6 @@ import {
   CardTitle,
 } from '../../../components/ui/card'
 import { Separator } from '../../../components/ui/separator'
-import { motion } from 'motion/react'
 
 export const Route = createFileRoute('/_admin/admin/settings')({
   component: AdminSettingsComponent,

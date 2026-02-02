@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
 import { ChevronLeft, ChevronRight, Copy, Search, Trash2 } from 'lucide-react'
+import { motion } from 'motion/react'
 import { fetchClient } from '../../../lib/api'
 import { Button } from '../../../components/ui/button'
 import { Checkbox } from '../../../components/ui/checkbox'
@@ -30,7 +31,6 @@ import {
 } from '../../../components/ui/alert-dialog'
 import { Label } from '../../../components/ui/label'
 import { Separator } from '@/components/ui/separator'
-import { motion } from 'motion/react'
 
 export const Route = createFileRoute('/_user/dashboard/gallery')({
   component: GalleryComponent,

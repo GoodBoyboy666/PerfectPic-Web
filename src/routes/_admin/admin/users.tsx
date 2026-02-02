@@ -10,6 +10,7 @@ import {
   Trash2,
   Upload,
 } from 'lucide-react'
+import { motion } from 'motion/react'
 import { fetchClient } from '../../../lib/api'
 import { Button } from '../../../components/ui/button'
 import { Input } from '../../../components/ui/input'
@@ -56,7 +57,6 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { formatBytes } from '@/lib/utils'
-import { motion } from 'motion/react'
 
 export const Route = createFileRoute('/_admin/admin/users')({
   component: AdminUsersComponent,

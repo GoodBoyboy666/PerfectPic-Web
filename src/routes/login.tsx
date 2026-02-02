@@ -1,5 +1,6 @@
 import { Link, createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
+import { motion } from 'motion/react'
 import { useAuth } from '../context/AuthContext'
 import { fetchClient } from '../lib/api'
 import { Button } from '../components/ui/button'
@@ -13,7 +14,6 @@ import {
   CardHeader,
   CardTitle,
 } from '../components/ui/card'
-import { motion } from 'motion/react'
 
 export const Route = createFileRoute('/login')({
   component: LoginComponent,

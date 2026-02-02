@@ -1,7 +1,7 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
+import { motion } from 'motion/react'
 import { useSite } from '../context/SiteContext'
 import { Button } from '../components/ui/button'
-import { motion } from 'motion/react'
 
 export const Route = createFileRoute('/')({
   component: App,

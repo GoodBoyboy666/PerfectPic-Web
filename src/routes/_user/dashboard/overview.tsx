@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
+import { motion } from 'motion/react'
 import { useAuth } from '../../../context/AuthContext'
 import { fetchClient } from '../../../lib/api'
 import {
@@ -10,7 +11,6 @@ import {
 } from '../../../components/ui/card'
 import { formatBytes } from '@/lib/utils'
 import { Separator } from '@/components/ui/separator'
-import { motion } from 'motion/react'
 
 export const Route = createFileRoute('/_user/dashboard/overview')({
   component: OverviewComponent,

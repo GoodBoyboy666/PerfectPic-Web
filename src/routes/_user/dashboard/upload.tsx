@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
 import { Copy } from 'lucide-react'
 import { toast } from 'sonner'
+import { motion } from 'motion/react'
 import { fetchClient } from '../../../lib/api'
 import { Button } from '../../../components/ui/button'
 import { Checkbox } from '../../../components/ui/checkbox'
@@ -16,7 +17,6 @@ import {
   SelectValue,
 } from '../../../components/ui/select'
 import { Card, CardContent } from '../../../components/ui/card'
-import { motion } from 'motion/react'
 
 const convertImage = (file: File, format: string): Promise<File> => {
   return new Promise((resolve, reject) => {

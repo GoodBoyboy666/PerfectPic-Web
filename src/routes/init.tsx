@@ -1,6 +1,7 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import { toast } from 'sonner'
+import { motion } from 'motion/react'
 import { fetchClient } from '../lib/api'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -13,7 +14,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { motion } from 'motion/react'
 
 export const Route = createFileRoute('/init')({
   component: InitComponent,

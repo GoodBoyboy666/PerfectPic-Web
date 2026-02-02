@@ -9,6 +9,7 @@ import {
   Trash2,
   User,
 } from 'lucide-react'
+import { motion } from 'motion/react'
 import { fetchClient } from '../../../lib/api'
 import { Button } from '../../../components/ui/button'
 import { Checkbox } from '../../../components/ui/checkbox'
@@ -42,7 +43,6 @@ import {
   AvatarImage,
 } from '../../../components/ui/avatar'
 import { Separator } from '@/components/ui/separator'
-import { motion } from 'motion/react'
 
 export const Route = createFileRoute('/_admin/admin/images')({
   component: AdminImagesComponent,

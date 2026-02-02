@@ -9,6 +9,7 @@ import {
   Users,
   Zap,
 } from 'lucide-react'
+import { motion } from 'motion/react'
 import { fetchClient } from '../../../lib/api'
 import {
   Card,
@@ -18,7 +19,6 @@ import {
   CardTitle,
 } from '../../../components/ui/card'
 import { Separator } from '../../../components/ui/separator'
-import { motion } from 'motion/react'
 
 export const Route = createFileRoute('/_admin/admin/overview')({
   component: AdminOverview,

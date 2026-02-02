@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { useEffect, useRef, useState } from 'react'
 import { Lock, Upload, User } from 'lucide-react'
 import { toast } from 'sonner'
+import { motion } from 'motion/react'
 import { fetchClient } from '../../../lib/api'
 import { useAuth } from '../../../context/AuthContext'
 import { Button } from '../../../components/ui/button'
@@ -20,7 +21,6 @@ import {
   AvatarImage,
 } from '../../../components/ui/avatar'
 import { Separator } from '../../../components/ui/separator'
-import { motion } from 'motion/react'
 
 export const Route = createFileRoute('/_user/dashboard/profile')({
   component: ProfileComponent,
