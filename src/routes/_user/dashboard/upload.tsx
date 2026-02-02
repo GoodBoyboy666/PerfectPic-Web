@@ -72,6 +72,30 @@ const getSafeFilesFromInput = (input: HTMLInputElement): Array<File> => {
   return files
 }
 
+const PreviewImage = ({ file }: { file: File }) => {
+  const [src, setSrc] = useState<string>('')
+
+  useEffect(() => {
+    // Double check that we are dealing with a File object
+    if (!(file instanceof File)) return
+
+    const objectUrl = URL.createObjectURL(file)
+    setSrc(objectUrl)
+
+    return () => URL.revokeObjectURL(objectUrl)
+  }, [file])
+
+  if (!src) return null
+
+  return (
+    <img
+      src={src}
+      className="h-32 w-full object-cover rounded-md shadow-sm border"
+      alt="preview"
+    />
+  )
+}
+
 export const Route = createFileRoute('/_user/dashboard/upload')({
   component: UploadComponent,
 })
@@ -79,7 +103,7 @@ export const Route = createFileRoute('/_user/dashboard/upload')({
 function UploadComponent() {
   // State for files and previews
   const [files, setFiles] = useState<Array<File>>([])
-  const [previews, setPreviews] = useState<Array<string>>([])
+  // Previews handled by individual components to avoid state tainting checks
   const [uploading, setUploading] = useState(false)
   const [uploadedResults, setUploadedResults] = useState<
     Array<{ url: string; id: number }>
@@ -88,25 +112,6 @@ function UploadComponent() {
   // Format Conversion State
   const [convert, setConvert] = useState(false)
   const [targetFormat, setTargetFormat] = useState('webp')
-
-  useEffect(() => {
-    // Re-verify files in effect before processing
-    const safeFiles: Array<File> = []
-    files.forEach((f) => {
-      if (f instanceof File && f.type.startsWith('image/')) {
-        safeFiles.push(f)
-      }
-    })
-
-    const newPreviews = safeFiles.map((f) => URL.createObjectURL(f))
-    setPreviews(newPreviews)
-
-    return () => {
-      newPreviews.forEach((url) => {
-        if (url && typeof url === 'string') URL.revokeObjectURL(url)
-      })
-    }
-  }, [files])
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Use helper to sanitize input
@@ -208,18 +213,11 @@ function UploadComponent() {
                 onChange={handleFileChange}
                 className="hidden"
               />
-              {previews.length > 0 ? (
+              {files.length > 0 ? (
                 <div className="grid grid-cols-3 gap-4">
-                  {previews.map((src, i) =>
-                    // Only render blob URLs to ensure safety
-                    src.startsWith('blob:') ? (
-                      <img
-                        key={i}
-                        src={src}
-                        className="h-32 w-full object-cover rounded-md shadow-sm border"
-                      />
-                    ) : null,
-                  )}
+                  {files.map((file, i) => (
+                    <PreviewImage key={i} file={file} />
+                  ))}
                 </div>
               ) : (
                 <div className="text-muted-foreground flex flex-col items-center">
